@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-DO APP</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>TO DO LIST APP</h1>
+    </header>
+
+    <div id="userdiv">
+        <label for="username" class="labeltext"> Hello, Enter Your Name:</label>
+        <input type="text" id="username" value="Enter name" onclick="this.value=''"></input>
+        <input type="submit" id="subBtn" value="Login" onclick="userLogin()"></input>
+    </div>
+    <br>
+    <hr>
+    <div id="postloginfo">
+        <div id="loggeduser">
+            <img src="../images/login.png" width="96" height="96">
+            <h2 id="user"></h2>
+        </div>
+        <div id="logoutuser"> <button id="logoutbtn" onclick="logOut()" ;>Log out</button></div>
+    </div>
+    <div id="dummydiv" class="dummydiv"></div>
+    <div id="addtask_table_div">
+        <br>
+        <div id="addtasktbdiv">
+            <h2 id="taskHeading">Add To-Do Tasks </h2>
+            <table>
+                <caption id="addTblcaption">Add Task</caption>
+                <tr>
+                    <td> <label class="addtableData" for="usernamelabel">User:</label></td>
+                    <td><label class="addtableData" id="usernamelabel"></label></td>
+                </tr>
+                <tr>
+                    <td><label class="addtableData" for="toDoTask">Enter Task :</label></td>
+                    <td><input type="text" id="toDoTask" required ></td>
+                </tr>
+                <tr>
+                    <td> <label class="addtableData" for="toDoDate">Date</label></td>
+                    <td> <input type="date" id="toDoDate" required ></td>
+
+                </tr>
+                <tr>
+                    <td> <input type="submit" class="addtableData" onclick="addTask()" value="Add"></td>
+                    <td> <button id="resetbtn" class="addtableData" onclick="resetform()">Reset</button></td>
+                </tr>
+            </table>
+            
+        </div>
+        <div id="taskviewer">
+            <div id="selection_div">
+                <label id="selecttasks" class="addtableData" for="taskchoice">Select Option</label>
+                <select id="taskchoice" onchange="onSelectionChange()" >
+                    <option value="blankdefault"> </option>
+                    <option value="incompltetask"> Incomplete Task</option>
+                    <option value="completed"> Completed Tasks</option>
+                    <option value="all"> All Tasks</option>
+                    
+                    
+                </select>
+                <br>
+            </div>
+            <div id="displaytablediv">
+                <table id="selection_data_tb" class="displaytable">
+                    <caption id="dispTblcaption"></caption>
+                    <!-- <colgroup>
+                    <col id="taskcol" >
+                    <col id="datecol">
+                    <col id="statusco">
+                    <col id="checkcol">
+                    </colgroup> -->
+                    <th class="displaytable"> Task </th>
+                    <th class="displaytable"> Date </th>
+                    <th class="displaytable"> Status </th>
+                    <th class="displaytable"> Complete </th>
+                    <tbody id="select_data_body" class="displaytable">
+
+                        
+                    </tbody>
+                
+                </table>
+            </div>
+
+        </div>
+        <div id="footertext" class="dummydiv"></div>
+    </div>
+
+
+
+    <script src="./toDO.js"> </script>
+
+</body>
+
+</html>
