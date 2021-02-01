@@ -8,7 +8,7 @@ class ToDo {
     constructor(task, date, status) {
         this.taskvalue = task;
         this.datevalue = date;
-        this.statusvalue = status;//status
+        this.statusvalue = status;
 
     }
 }
