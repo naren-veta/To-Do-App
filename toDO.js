@@ -2,7 +2,7 @@ let _username;
 let new_task_array = [];
 let completed_task_array = [];
 let all_task_array = [];
-let caption;
+let caption;//caption
 
 class ToDo {
     constructor(task, date, status) {
