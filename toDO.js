@@ -106,8 +106,9 @@ function logOut() {
 function addTask() {
     let task = document.getElementById("toDoTask").value;
     let date = new Date(document.getElementById("toDoDate").value).toDateString();
+    console.log("Received date is "+date);
 
-    if (task == null || task == "" || date == null || date == "") {
+    if (task == null || task == "" || date == null || date == "Invalid Date") {
         alert("Task not added");
         document.getElementById("toDoTask").focus();
     }
@@ -117,10 +118,10 @@ function addTask() {
         alert("Successfully Added");
         resetform();
         console.log("Here is added task array" + JSON.stringify(new_task_array));
-
+        document.getElementById("dispTblcaption").innerHTML = 'LIST OF TASKS';
+        appendTable(new_task_array);
     }
-    document.getElementById("dispTblcaption").innerHTML = 'LIST OF TASKS';
-    appendTable(new_task_array);
+    
 }
 
 
@@ -167,8 +168,11 @@ function appendTable(new_task_array) {
                 prevsibling.removeChild(prevsibling.childNodes[0]);
             }
 
-            let datecompletion = "Completed on" + new Date();
-            x.parentNode.previousSibling.appendChild(document.createTextNode(datecompletion));
+            let datecompletion =  new Date();
+            
+            x.parentNode
+              .previousSibling
+              .appendChild(document.createTextNode(`Completed on ${ datecompletion.toDateString()} @ ${datecompletion.getHours()} Hrs: ${datecompletion.getMinutes()} Mins`));
 
             x.setAttribute("disabled", "true");
 
